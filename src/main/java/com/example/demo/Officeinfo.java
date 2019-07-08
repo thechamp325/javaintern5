@@ -136,6 +136,9 @@ public class Officeinfo {
 			stmt.setDate(31, uniapp_date_phd);
 			stmt.setString(32, uni_app_period);
 			stmt.setString(33,nature_of_appointment);
+			
+
+			
 
 
 

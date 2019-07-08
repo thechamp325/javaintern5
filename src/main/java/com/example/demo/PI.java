@@ -227,6 +227,7 @@ public class PI {
 						stmt.setArray(3, rs2.getArray(3));
 
 						stmt.setArray(4, rs2.getArray(4));
+
 						stmt.setArray(5, rs2.getArray(5));
 						stmt.setArray(6, rs2.getArray(6));
 
