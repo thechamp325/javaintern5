@@ -119,7 +119,7 @@ public class PI {
 			while (rs.next())
 			{ 
 			
-				if(payload.get("employee_id").equals(rs.getString(1))) {
+				if(payload.get("employee_id").equals(rs.getString(10))) {
 					emp_temp.put("nop",rs.getString(1));
 					emp_temp.put("nop_int",rs.getString(2));
 					emp_temp.put("nop_conf",rs.getString(3));
@@ -156,15 +156,25 @@ public class PI {
 	@PostMapping("/pi/emp/admin/login/approve")// Complete it later
 	public Map<String,String> admin_approve(@RequestBody Map<String, Object> payload) throws Exception{
 		if(admin_log) {
-			String sql1="Select * from public.otherinfo1 where employee_id ="+payload.get(1)+"";
+			System.out.println(payload.get("employee_id"));
+
+			String sql1="Select * from public.otherinfo1 ;";
 			Statement st1 = et.connect().createStatement();
 			ResultSet rs1= st1.executeQuery(sql1);
-			
+			while(rs1.next()) {
+				if(rs1.getString(10).equals(payload.get("employee_id"))) {
+					break;
+				}
+			}
+
+			System.out.println("after resultset rs1 ="+rs1.getString(10)+"");
 			
 					
 					String sql2 ="INSERT INTO public.otherinfo1(\r\n" + 
 							"	nop, nop_int, nop_conf, nop_intconf, nob, nopatents, pgrant, awarddets, grantr, \"Employee_ID\")\r\n" + 
 							"	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+					System.out.println("after sql2 ");
+
 		
 					try {
 						PreparedStatement stmt = db.connect().prepareStatement(sql2);
@@ -180,7 +190,6 @@ public class PI {
 						stmt.setString(10,rs1.getString(10));
 					
 
-						System.out.println("LOGIN ID IS10"+log);
 
 						
 						stmt.executeUpdate();
@@ -196,15 +205,40 @@ public class PI {
 					
 					
 					
-					String sql3="Select * from public.temp where employee_id ="+payload.get(1)+"";
+					String sql3="Select * from public.temp ;";
 					Statement st2 = et.connect().createStatement();
 					ResultSet rs2= st2.executeQuery(sql3);
+					System.out.println("after sql3");
+					while(rs2.next()) {
+						if(rs2.getString(10).equals(payload.get("employee_id"))) {
+							break;
+						}
+					}
 					
-					String sql4 = "UPDATE public.eduqualification SET past_teaching = "+rs2.getArray(1)+", pt_startdate = "+rs2.getArray(2)+", pt_enddate = "+rs2.getArray(3)+", past_industry = "+rs2.getArray(4)+", pi_startdate = "+rs2.getArray(5)+", pi_enddate = "+rs2.getArray(6)+", past_research = "+rs2.getArray(7)+", pr_startdate = "+rs2.getArray(8)+", pr_enddate = "+rs2.getArray(9)+" WHERE \"Employee_ID\" = "+rs2.getString(10)+";";
-					
+//				String sql4 = "UPDATE public.eduqualification SET past_teaching = "+rs2.getArray("past_teaching")+", pt_startdate = "+rs2.getArray("pt_startdate")+", pt_enddate = "+rs2.getArray("pt_enddate")+", past_industry = "+rs2.getArray("past_industry")+", pi_startdate = "+rs2.getArray("pi_startdate")+", pi_enddate = "+rs2.getArray("pi_enddate")+", past_research = "+rs2.getArray("past_research")+", pr_startdate = "+rs2.getArray("pr_startdate")+", pr_enddate = "+rs2.getArray("pr_enddate")+" WHERE \"Employee_ID\" = "+rs2.getString(10)+";";
+					String sql4 = "UPDATE public.eduqualification\r\n" + 
+							"	SET  past_teaching=?, pt_startdate=?, pt_enddate=?, past_industry=?, pi_startdate=?, pi_enddate=?, past_research=?, pr_startdate=?, pr_enddate=?\r\n" + 
+							"	WHERE \"Employee_ID\" = ?;";
+					System.out.println("sql4");
 					try {
-						Statement stmt = et.connect().createStatement();
-						stmt.executeQuery(sql4);
+						PreparedStatement stmt = db.connect().prepareStatement(sql4);
+						stmt.setArray(1, rs2.getArray(1));
+						stmt.setArray(2, rs2.getArray(2));
+						stmt.setArray(3, rs2.getArray(3));
+
+						stmt.setArray(4, rs2.getArray(4));
+						stmt.setArray(5, rs2.getArray(5));
+						stmt.setArray(6, rs2.getArray(6));
+
+						stmt.setArray(7, rs2.getArray(7));
+						stmt.setArray(8, rs2.getArray(8));
+						stmt.setArray(9, rs2.getArray(9));
+						stmt.setString(10,(String) payload.get("employee_id"));
+
+
+
+						stmt.executeUpdate();
+						System.out.println("sql4 executed");
 					
 						} 
 					catch (SQLException e) {
@@ -251,7 +285,7 @@ public class PI {
 	
 	
 	
-	@PostMapping("/pi/emp/enter/login")
+	@PostMapping("/pi/emp/enter/login")//employee login
 	public boolean loginmethod(@RequestBody Map<String, Object> login) throws Exception{
 		 log = (String)login.get("ID");
 		String pass =(String)login.get("Password");
