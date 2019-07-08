@@ -56,6 +56,27 @@ public class PI {
 	
 	
 	
+	@PostMapping("/pi/emp/enter/admin/login/details")   //for data filling by admin 
+	public String data(@RequestBody Map<String, Object> payload) throws Exception{
+	if(admin_log) {
+		String log = (String) payload.get("Employee_ID");
+	Education E= new Education();
+	String s = E.entry(payload,log);
+	Officeinfo oi = new Officeinfo();
+	String s3 = oi.entry(payload, log);
+//	Others o = new Others();
+//	String s2 = o.entry(payload, log);
+	
+	return s;
+	}
+	else {
+		return "Please sign in";
+	}
+	
+}
+	
+	
+	
 	
 	
 	
@@ -266,23 +287,7 @@ public class PI {
 	}
 	
 	
-	@PostMapping("/pi/emp/enter/admin/login/details")   //for data filling by admin 
-		public String data(@RequestBody Map<String, Object> payload) throws Exception{
-		if(admin_log) {
-		Education E= new Education();
-		String s = E.entry(payload,log);
-		Officeinfo oi = new Officeinfo();
-		String s3 = oi.entry(payload, log);
-		Others o = new Others();
-		String s2 = o.entry(payload, log);
-		
-		return s;
-		}
-		else {
-			return "Please sign in";
-		}
-		
-	}
+	
 	
 	
 	

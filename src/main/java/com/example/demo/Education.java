@@ -44,8 +44,8 @@ public class Education {
 		
 	
 String sql = "INSERT INTO public.eduqualification(\r\n" + 
-		"	diploma, class_diploma, diplomamonthyr, diplomainst, diplomaboard, qual_ug, grade_ug, ugmonthyr, uginst, uguniversity, pgqual, pgclass, pgmonthyr, pginst, pguniversity, phdsubj, phdmonthyr, phdinst, phduniversity, areaspecial, pastteaching, pastindustry, pastresearch, \"Employee_ID\")\r\n" + 
-		"	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";	
+		"	diploma, class_diploma, diplomamonthyr, diplomainst, diplomaboard, qual_ug, grade_ug, ugmonthyr, uginst, uguniversity, pgqual, pgclass, pgmonthyr, pginst, pguniversity, phdsubj, phdmonthyr, phdinst, phduniversity, areaspecial, \"Employee_ID\")\r\n" + 
+		"	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";	
 
 		try {
 			PreparedStatement stmt = db.connect().prepareStatement(sql);
@@ -69,11 +69,9 @@ String sql = "INSERT INTO public.eduqualification(\r\n" +
 			stmt.setString(18, phdinst);
 			stmt.setString(19, phduniversity);
 			stmt.setString(20,areaspecial);
-			stmt.setString(21,pastteaching);
-			stmt.setString(22, pastindustry);
-			stmt.setString(23, pastresearch);
+			
 			//stmt.setInt(24,empid);
-			stmt.setString(24, log);
+			stmt.setString(21, log);
 			
 			
 			
