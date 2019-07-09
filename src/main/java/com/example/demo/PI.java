@@ -630,6 +630,16 @@ System.out.println("Approval pending");
 		return f.facultyinfo(payload,adb);
 	
 	}
+
+	@PostMapping("/pi/emp/logout")
+	public String logouteveryone() {
+		 admin_log=false;
+		 emp_log = false;
+		 return "done";
+	}
 }
+
+
+
 	
 	
