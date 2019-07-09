@@ -446,11 +446,11 @@ SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 		
 		int i = 0;
 		while(i < no_of_institutes) {
-			past_teaching[i]= (String) payload.get("inst1");
-			java.util.Date tempdate = sdf1.parse((String)payload.get("sdate1"));
+			past_teaching[i]= (String) payload.get("inst"+i+"");
+			java.util.Date tempdate = sdf1.parse((String)payload.get("instsdate"+i+""));
 			pt_startdate[i] = new java.sql.Date(tempdate.getTime());
 			
-			java.util.Date tempdate1 = sdf1.parse((String)payload.get("edate1"));
+			java.util.Date tempdate1 = sdf1.parse((String)payload.get("instedate"+i+""));
 			pt_enddate[i] = new java.sql.Date(tempdate1.getTime());
 			i++;
 		}
@@ -468,11 +468,11 @@ SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 		Date[] pi_startdate = new Date[no_of_industries];
 		Date[] pi_enddate = new Date[no_of_industries];
 		while(i < no_of_industries) {
-			past_industries[i]= (String) payload.get("inst2");
-			java.util.Date tempdate = sdf1.parse((String)payload.get("sdate2"));
+			past_industries[i]= (String) payload.get("ind"+"");
+			java.util.Date tempdate = sdf1.parse((String)payload.get("indsdate"+i+""));
 			pi_startdate[i] = new java.sql.Date(tempdate.getTime());
 			
-			java.util.Date tempdate1 = sdf1.parse((String)payload.get("edate2"));
+			java.util.Date tempdate1 = sdf1.parse((String)payload.get("indedate2"+""));
 			pi_enddate[i] = new java.sql.Date(tempdate1.getTime());
 			i++;
 		}
@@ -488,11 +488,11 @@ SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 		Date[] pr_startdate = new Date[no_of_researches];
 		Date[] pr_enddate = new Date[no_of_researches];
 		while(i < no_of_researches) {
-			past_researches[i]= (String) payload.get("inst3");
-			java.util.Date tempdate = sdf1.parse((String)payload.get("sdate3"));
+			past_researches[i]= (String) payload.get("res"+i+"");
+			java.util.Date tempdate = sdf1.parse((String)payload.get("ressdate"+i+""));
 			pr_startdate[i] = new java.sql.Date(tempdate.getTime());
 			
-			java.util.Date tempdate1 = sdf1.parse((String)payload.get("edate3"));
+			java.util.Date tempdate1 = sdf1.parse((String)payload.get("resedate"+i+""));
 			pr_enddate[i] = new java.sql.Date(tempdate1.getTime());
 			i++;
 		}
