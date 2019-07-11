@@ -50,6 +50,23 @@ public class PI {
 		System.out.println(payload);
 		Personal p = new Personal();
 		String s = p.entry(payload);
+
+String sql="INSERT INTO public.credentials(\r\n" + 
+		"	\"Login\", password)\r\n" + 
+		"	VALUES (?, ?);";
+
+try {
+	PreparedStatement stmt = adb.connect().prepareStatement(sql);
+	stmt.setString(1, (String)payload.get("empid"));
+	stmt.setString(2,(String)payload.get("empid"));
+	stmt.executeUpdate();
+}
+catch (SQLException e) {
+	
+	e.printStackTrace();
+	System.out.println(e.getMessage());
+
+}
 		//System.out.println("here");
 		return s;
 	}
