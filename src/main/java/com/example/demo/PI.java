@@ -485,11 +485,11 @@ SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 		Date[] pi_startdate = new Date[no_of_industries];
 		Date[] pi_enddate = new Date[no_of_industries];
 		while(i < no_of_industries) {
-			past_industries[i]= (String) payload.get("ind"+"");
+			past_industries[i]= (String) payload.get("ind"+i+"");
 			java.util.Date tempdate = sdf1.parse((String)payload.get("indsdate"+i+""));
 			pi_startdate[i] = new java.sql.Date(tempdate.getTime());
 			
-			java.util.Date tempdate1 = sdf1.parse((String)payload.get("indedate2"+""));
+			java.util.Date tempdate1 = sdf1.parse((String)payload.get("indedate"+i+""));
 			pi_enddate[i] = new java.sql.Date(tempdate1.getTime());
 			i++;
 		}
