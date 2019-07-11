@@ -124,13 +124,13 @@ catch (SQLException e) {
 	@GetMapping("/pi/emp/admin/login/approval_list")
 	public Map<Integer,String> adminapproval_list() throws Exception{
 		if(admin_log) {
-		String sql2="Select * from public.approve";
-			Statement st = db.connect().createStatement();
+		String sql2="select employee_data from public.temp;";
+			Statement st = et.connect().createStatement();
 			ResultSet rs = st.executeQuery(sql2);
 			Map<Integer, String> approve = new HashMap<Integer, String>();
 			 int j=0;
 			while (rs.next())
-			{ approve.put(j,rs.getString(1));
+			{ approve.put(j,rs.getString("employee_data"));
 				    j++;
 			}
 			rs.close();
