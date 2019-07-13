@@ -37,9 +37,9 @@ public class Education {
 		String phduniversity =  (String) payload.get("phduniversity");
 			
 		String areaspecial =  (String) payload.get("areaspecial");
-		String pastteaching =  (String) payload.get("pastteaching");
-		String pastindustry =  (String) payload.get("pastindustry");
-		String pastresearch =  (String) payload.get("pastresearch");
+//		String pastteaching =  (String) payload.get("pastteaching");
+//		String pastindustry =  (String) payload.get("pastindustry");
+//		String pastresearch =  (String) payload.get("pastresearch");
 		//int empid =  (int) payload.get("empid");
 		
 	

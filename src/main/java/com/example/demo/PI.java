@@ -122,6 +122,28 @@ catch (SQLException e) {
 	
 	
 	
+	@PostMapping("/pi/emp/enter/admin/login/details/publications/national_journal")   //national international journal publications functions 
+	public String national_journal(@RequestBody Map<String, Object> payload) throws Exception{
+	if(admin_log) {
+		String log = (String) payload.get("Employee_ID");
+	Education E= new Education();
+	String s = E.entry(payload,log);
+	Officeinfo oi = new Officeinfo();
+	String s3 = oi.entry(payload, log);
+//	Others o = new Others();
+//	String s2 = o.entry(payload, log);
+	
+	return s;
+	}
+	else {
+		return "Please sign in";
+	}
+	
+}
+	
+	
+	
+	
 	
 	
 	@PostMapping("/pi/emp/admin/login")
