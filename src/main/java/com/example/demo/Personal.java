@@ -45,8 +45,8 @@ public class Personal {
 		
 		String pan = (String) payload.get("pan");
 		String aadhar = (String) payload.get("aadhar");
-		String mobile = String.valueOf((int) payload.get("phone"));
-		//String mobile = (String) payload.get("phone");
+//		String mobile = String.valueOf((int) payload.get("phone"));
+		String mobile = (String) payload.get("phone");
 
 		String oemail = (String) payload.get("oemail");
 		String pemail = (String) payload.get("pemail");
