@@ -47,9 +47,11 @@ public class PI {
 	
 	@PostMapping("/pi/emp/enter")
 	public String NewUser(@RequestBody Map<String, Object> payload) throws Exception{
+		String s;
+		if(admin_log) {
 		System.out.println(payload);
 		Personal p = new Personal();
-		String s = p.entry(payload);
+		 s = p.entry(payload);
 
 String sql="INSERT INTO public.credentials(\r\n" + 
 		"	\"Login\", password)\r\n" + 
@@ -67,6 +69,10 @@ catch (SQLException e) {
 	System.out.println(e.getMessage());
 
 }
+		}
+		else {
+			s="Please login";
+		}
 		//System.out.println("here");
 		return s;
 	}
