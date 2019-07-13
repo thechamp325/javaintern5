@@ -22,7 +22,7 @@ import java.util.Date.*;
 @RequestMapping(value = "/api",  produces = "application/json")
 public class PI {
 	public String log;
-	public boolean admin_log=false;
+	public boolean admin_log=true;
 	public boolean emp_log = false;
 	
 	@Autowired
@@ -76,6 +76,27 @@ catch (SQLException e) {
 		//System.out.println("here");
 		return s;
 	}
+	
+	
+	@GetMapping("/pi/emp/enter/admin/login/employee_exist")
+	public  Map<String,Boolean> Employee_exists(@RequestBody Map<String, Object> payload) throws SQLException{
+		Map<String, Boolean> map = new HashMap<String, Boolean>();
+		String sql ="SELECT \"Login\"FROM public.credentials;";
+		Statement st = adb.connect().createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		while (rs.next())
+		{ 
+			if(rs.getString("Login").equals((String)payload.get("Employee_ID"))) {
+				map.put("Employee_ID", true);	
+		   		return map;
+			}
+		}
+		map.put("Employee_ID", false);
+		return map;
+	}
+	
+
+
 	
 	
 	
