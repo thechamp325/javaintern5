@@ -1,0 +1,20 @@
+{
+	"no_of_institutes":1,
+	"inst0":"PICT",
+	"instsdate0":"1888-5-5",
+	"instedate0":"1888-5-5",
+	"design_teach0":"hello",
+	"department0":"entc",
+	
+	"no_of_industries":1,
+	"ind0":"PICT",
+	"indsdate0":"1888-5-5",
+	"indedate0":"1888-5-5",
+	
+	"no_of_researches":1,
+	"res0":"PICT",
+	"ressdate0":"1888-5-5",
+	"resedate0":"1888-5-5"
+	
+	
+}

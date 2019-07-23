@@ -1,0 +1,81 @@
+{
+   "diploma":"entc",
+    "class_diploma":"second",
+    "diplomamonthyr":"july2009",
+    "diplomainst":"PICT",
+    "diplomaboard":"SPPU",
+   
+ "qual_ug":"123",
+    "grade_ug":"A",
+
+    "ugmonthyr":"april2012",
+    "uginst":"PICT",
+
+    "uguniversity":"PICT",
+    "pgequal":"1",
+   
+ "pgclass":"2",
+  
+  "pgmonthyr":"H",
+     "pginst":"M",
+      "pguniversity":"SPPu",
+       "phdsubj":"190",
+        "phdmonthyr":"1342",
+         "phdinst":"1890",
+          "phduniversity":"agoveiafuvbgetg",
+           "areaspecial":"bfbovdyfvVFEV",
+     
+"bankaccno":"SPPu",
+       "bankname":"1234",
+        "designation":"1234",
+         "dep":"12345",
+ 
+
+"date_join":"1245-7-23",
+       "date_conf":"1342-4-23",
+        
+
+"uni_apprnumber":"SPPu",
+
+ "uni_apprperiodpg":2,
+   
+"uni_apprnumberpg":"SPPu",
+
+"uni_apprperiodphd":4,
+
+ "uni_apprnumberphd":"SPPu",
+  
+
+"date_retire":"1276-12-23",
+
+ "app_expiry_temp":"1672-7-23",
+
+
+ 
+ "ug_pg":"SPPu",
+ "payband":"SPPu",
+"pay":12,
+"paygrade":45,
+"uan":"1234",
+
+"pfaccno":"123",
+
+"presentstaff": true ,
+"resign_date":"1267-5-23",
+
+"relieve_date":"1782-4-23",
+ 
+ "staff_type":"SPPu",
+
+"increment_month":"vfdhg",
+ "vacation": true,
+ "remarks":"dgfdh",
+"bankbranch":"pune",
+"uniapp_date":"1999-1-1",
+"uniapp_date_pg":"1999-9-9",
+"uniapp_date_phd":"1999-9-9",
+"uni_app_period":"15months",
+"nature_of_appointment":"hello",
+"Employee_ID":"emp19"
+}
+
