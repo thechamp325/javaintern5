@@ -54,7 +54,20 @@ public class Personal {
 		
 	
 		
-		
+		String sqlcheck ="Select \"Employee_ID\" from public.\"Personal\" where \"Employee_ID\" = '"+empid+"';";
+		try{
+			Statement st = db.connect().createStatement();
+			ResultSet rs = st.executeQuery(sqlcheck);
+			rs.next();
+			if(empid.equals(rs.getString("Employee_ID"))) {
+				return "Employee already created";    
+		}
+		}
+		catch (SQLException e) {
+			
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
 		String sql ="INSERT INTO public.\"Personal\"(\"Employee_ID\", \"Salutation\", \"First_Name\", \"Middle_Name\", \"Last_Name\", \"Father_Name\", \"Mother_Name\", \"Gender\", \"caddress\", \"paddress\", \"Marital_Status\", \"Number_of_Children\", \"Religion\", \"Caste\", \"Date_of_Birth\", \"PAN\", \"Aadhar\", \"Mobile_Number\", \"Official_Email_ID\", \"Personal_Email_ID\",\"Alternate_Mobile_Number\")VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);";
 		try {
 			PreparedStatement stmt = db.connect().prepareStatement(sql);

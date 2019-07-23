@@ -31,7 +31,7 @@ public class facultyreport {
 		
 		
 			Statement stmt = adb.connect().createStatement();
-		     rs = stmt.executeQuery(sql);
+		     rs = stmt.executeQuery(sql); 
 			    System.out.println("Query executed");
 
 		    
@@ -40,7 +40,7 @@ public class facultyreport {
 		{
 		    System.out.println("inside while");
 
-			if((rs.getString(1).equals("{"+Department+"}"))&& (Shift==rs.getBoolean(2)))
+			if((rs.getString(1).equals(Department))&& (Shift==rs.getBoolean(2)))
 			{		   
 
 		    System.out.print("Column 1 returned ");

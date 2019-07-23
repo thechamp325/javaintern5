@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-public class Education {
+public class Education {//tested
 	//@Autowired
 	 public DB db = new DB();
 	public String entry(Map<String, Object> payload,String log) throws Exception{
@@ -24,7 +24,7 @@ public class Education {
 		String ugmonthyr = (String) payload.get("ugmonthyr");
 		String uginst = (String) payload.get("uginst");
 		String uguniversity = (String) payload.get("uguniversity");
-		String pgqual = (String) payload.get("pgqual");
+		String pgequal = (String) payload.get("pgequal");
 		String pgclass = (String)payload.get("pgclass");
 		String pgmonthyr =  (String) payload.get("pgmonthyr");
 		String pginst =  (String) payload.get("pginst");
@@ -44,8 +44,8 @@ public class Education {
 		
 	
 String sql = "INSERT INTO public.eduqualification(\r\n" + 
-		"	diploma, class_diploma, diplomamonthyr, diplomainst, diplomaboard, qual_ug, grade_ug, ugmonthyr, uginst, uguniversity, pgqual, pgclass, pgmonthyr, pginst, pguniversity, phdsubj, phdmonthyr, phdinst, phduniversity, areaspecial, \"Employee_ID\")\r\n" + 
-		"	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";	
+		"	diploma, class_diploma, diplomamonthyr, diplomainst, diplomaboard, qual_ug, grade_ug, ugmonthyr, uginst, uguniversity, pgequal, pgclass, pgmonthyr, pginst, pguniversity, phdsubj, phdmonthyr, phdinst, phduniversity, areaspecial, \"Employee_ID\")\r\n" + 
+		"	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
 		try {
 			PreparedStatement stmt = db.connect().prepareStatement(sql);
@@ -59,7 +59,7 @@ String sql = "INSERT INTO public.eduqualification(\r\n" +
 			stmt.setString(8, ugmonthyr);
 			stmt.setString(9, uginst);
 			stmt.setString(10, uguniversity);
-			stmt.setString(11, pgqual);
+			stmt.setString(11, pgequal);
 			stmt.setString(12, pgclass);
 			stmt.setString(13, pgmonthyr);
 			stmt.setString(14, pginst);
